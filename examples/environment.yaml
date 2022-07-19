@@ -1,0 +1,37 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Environment
+metadata:
+  name: test-environment
+spec:
+  type: poc
+  deploymentController: appstudio
+  deploymentStrategy: Manual
+  displayName: Test Environment
+  parentEnvironment: test-environment
+  tags:
+    - test
+  clusterCredentials:
+    apiServerURL: http://example.com/prod
+  configuration:
+    env:
+      - name: env
+        value: test
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Environment
+metadata:
+  name: staging-environment
+spec:
+  type: poc
+  deploymentController: appstudio
+  deploymentStrategy: Manual
+  displayName: Staging Environment
+  parentEnvironment: test-environment
+  tags:
+    - stage
+  clusterCredentials:
+    apiServerURL: http://example.com/stage
+  configuration:
+    env:
+      - name: env
+        value: stage

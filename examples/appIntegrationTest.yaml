@@ -1,0 +1,39 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: IntegrationTestScenario
+metadata:
+  name: app-integration-test-one
+spec:
+  application: frontend-application
+  bundle: "quay.io/kpavic/test-bundle:pipeline"
+  contexts:
+    - description: Runs only during application testing
+      name: application
+  environment:
+    name: test-environment
+    params: []
+    type: workspace
+  params:
+    - name: test-param
+      value:
+        - test
+  pipeline: demo-pipeline
+---
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: IntegrationTestScenario
+metadata:
+  name: app-integration-test-two
+spec:
+  application: frontend-application
+  bundle: "quay.io/kpavic/test-bundle:pipeline"
+  contexts:
+    - description: Runs only during application testing
+      name: application
+  environment:
+    name: test-environment
+    params: []
+    type: workspace
+  params:
+    - name: test-param
+      value:
+        - test
+  pipeline: demo-pipeline
