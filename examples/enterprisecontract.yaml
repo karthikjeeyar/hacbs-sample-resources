@@ -1,4 +1,3 @@
-oc apply -f - <<EOF
 apiVersion: appstudio.redhat.com/v1alpha1
 kind: EnterpriseContractPolicy
 metadata:
@@ -12,4 +11,3 @@ spec:
   - git:
       repository: https://github.com/hacbs-contract/ec-policies
       revision: m5-demo
-EOF
